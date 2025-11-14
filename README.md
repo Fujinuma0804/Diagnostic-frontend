@@ -1,75 +1,62 @@
-# Generate Page in ReactJS
+# Generate Page Frontend
 
-This is a ReactJS application for a Generate Page, built with Vite, TypeScript, and Tailwind CSS. It includes various UI components from shadcn/ui and Radix UI primitives.
-
-The original Figma design is available at https://www.figma.com/design/8DKpFf3RBQuzqS9oE0VfjX/Untitled?node-id=1-3
+This React + Vite application implements the Generate Page experience from the Figma design at https://www.figma.com/design/8DKpFf3RBQuzqS9oE0VfjX/Untitled?node-id=1-3. It uses Tailwind CSS together with shadcn/ui and Radix UI primitives to reproduce the original UI and flows (quiz, character selection, and results).
 
 ## Prerequisites
 
-- Node.js (version 18 or higher)
-- npm or yarn
+- Node.js 18+
+- npm (comes with Node.js) or another compatible package manager
 
-## Installation
+## Quick Start
 
-1. Clone the repository or download the project files.
-2. Navigate to the project directory:
+1. Clone the repository and open the project folder.
+2. Move into the frontend workspace:
    ```bash
-   cd testapp_frontend
+   cd frontend
    ```
 3. Install dependencies:
    ```bash
    npm install
    ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The app will be served on `http://localhost:5173` by default.
 
-## Environment Setup
+## Environment Variables
 
-Create a `.env` file in the root directory of the project and add the following environment variables:
+Create a `.env` file in `frontend/` if you need to override the default API endpoint:
 
 ```env
 VITE_API_URL=http://127.0.0.1:8000/api/
 ```
 
-- `VITE_API_URL`: The base URL for the API endpoints. Update this to match your backend server URL.
+- `VITE_API_URL` points to the backend used for quiz logic and generated content. Adjust it to match your API origin.
 
-## Running the Application
+## Available Scripts
 
-To start the development server:
+- `npm run dev` – start the Vite development server with hot module replacement.
+- `npm run build` – produce an optimized production bundle in `dist/`.
 
-```bash
-npm run dev
-```
+## Project Structure Highlights
 
-This will start the Vite development server, typically on `http://localhost:5173`.
+- `src/` – application source
+  - `components/` – page-level and reusable UI pieces
+    - `figma/` – helpers for mirroring Figma assets/behaviour
+    - `ui/` – shadcn/ui components configured for this project
+  - `styles/` – Tailwind and global CSS
+  - `App.tsx` – main route tree and layout composition
+  - `main.tsx` – Vite entry point
+- `public/` – static assets and JSON seed data (`json/` mirrors the backend payloads)
+- `package.json` – dependencies and npm scripts
 
-## Building for Production
+## Tech Stack
 
-To build the application for production:
-
-```bash
-npm run build
-```
-
-The built files will be in the `dist` directory.
-
-## Project Structure
-
-- `src/`: Source code
-  - `components/`: Reusable components
-    - `ui/`: shadcn/ui components
-    - `figma/`: Figma-specific components
-  - `styles/`: CSS styles
-  - `App.tsx`: Main application component
-  - `main.tsx`: Entry point
-- `public/`: Static assets
-- `package.json`: Dependencies and scripts
-
-## Technologies Used
-
-- React 18
-- TypeScript
+- React 18 + React Router
 - Vite
+- TypeScript
 - Tailwind CSS
-- Radix UI
-- shadcn/ui components
+- Radix UI + shadcn/ui primitives
 - Lucide React icons
 
